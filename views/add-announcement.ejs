@@ -1,0 +1,69 @@
+<%- include('partials/header') %>
+
+<body>
+	<!--  Body Wrapper -->
+	<div
+		class="page-wrapper"
+		id="main-wrapper"
+		data-layout="vertical"
+		data-navbarbg="skin6"
+		data-sidebartype="full"
+		data-sidebar-position="fixed"
+		data-header-position="fixed"
+	>
+		<%- include('partials/sidebar') %>
+		<!--  Main wrapper -->
+		<div class="body-wrapper">
+			<%- include('partials/header-top') %>
+			<div class="container-fluid">
+				<div class="container-fluid">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title fw-semibold mb-4">Duyuru Ekle</h5>
+							<div class="card">
+								<div class="card-body">
+									<form>
+										<div class="mb-3">
+											<label for="exampleFormControlInput1" class="form-label">Duyuru Adı</label>
+											<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Duyuru Adı" />
+										</div>
+										<div class="mb-3">
+											<label for="exampleFormControlTextarea1" class="form-label">Duyuru Açıklaması</label>
+											<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+										</div>
+										<div class="mb-3">
+											<label for="exampleFormControlTextarea1" class="form-label">Duyuru Tarihi</label>
+											<input
+												type="date"
+												class="form-control"
+												id="exampleFormControlInput1"
+												placeholder="Duyuru Başlığı"
+											/>
+										</div>
+										<div class="mb-3">
+											<label for="exampleFormControlTextarea1" class="form-label">Duyuru Bitiş Tarihi</label>
+											<input
+												type="date"
+												class="form-control"
+												id="exampleFormControlInput1"
+												placeholder="Duyuru Başlığı"
+											/>
+										</div>
+										<div class="mb 3">
+											<button type="button" class="btn btn-primary">Duyuru Ekle</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+	<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../assets/js/sidebarmenu.js"></script>
+	<script src="../assets/js/app.min.js"></script>
+	<script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+</body>
