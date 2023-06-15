@@ -1,12 +1,25 @@
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const mongoose = require('mongoose')
+
+const dotenv = require('dotenv')
+dotenv.config()
+
+const store = MongoStore.create({
+	mongoUrl: process.env.DB_URI,
+	collection: 'sessions',
+	clientPromise: mongoose.connect(process.env.DB_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	}),
+	client: mongoose.connection
+})
 
 const sessionConfig = {
-	secret: 'af1b80b4-fa19-42bc-9f36-b5de499da1e1',
-	resave: false, //her istekte sessionu kaydetme
+	secret: 'my-secret-key',
+	resave: false,
 	saveUninitialized: false,
-	cookie: {
-		maxAge: 1000 * 60 * 60
-	}
+	store: store
 }
 
 module.exports = session(sessionConfig)

@@ -1,5 +1,9 @@
 const Announce = require('../models/Announce')
 
+const getAddAnnounce = (req, res) => {
+	res.render('add-announce')
+}
+
 const createAnnounce = async (req, res) => {
 	console.log('req body create: ', req.body)
 
@@ -34,6 +38,7 @@ const getAllAnnounces = async (req, res) => {
 }
 
 module.exports = {
+	getAddAnnounce,
 	createAnnounce,
 	getAllAnnounces
 }

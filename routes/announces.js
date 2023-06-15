@@ -3,6 +3,6 @@ const announceController = require('../controllers/announceController')
 
 const router = express.Router()
 
-router.route('/create').get(announceController.createAnnounce)
+router.route('/add').get(announceController.getAddAnnounce)
 
 module.exports = router
