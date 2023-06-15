@@ -4,41 +4,29 @@ const getAddAnnounce = (req, res) => {
 	res.render('add-announce')
 }
 
-const createAnnounce = async (req, res) => {
-	console.log('req body create: ', req.body)
-
+const postAddAnnounce = async (req, res) => {
+	console.log('req body: ', req.body)
 	try {
-		const announce = await Announce(req.body)
+		const announce = new Announce({
+			name: req.body.name,
+			description: req.body.description,
+			startDate: req.body.startDate,
+			endDate: req.body.endDate
+		})
+
 		await announce.save()
-		res.status(200).json({
-			message: 'Announce created successfully',
-			announce
-		})
-	} catch (error) {
-		res.status(500).json({
-			message: 'Announce could not be created',
-			error
-		})
-	}
-}
 
-const getAllAnnounces = async (req, res) => {
-	try {
-		const announces = await Announce.find()
-		res.json({
-			message: 'Announces retrieved successfully',
-			announces
+		res.render('add-announce', {
+			message: 'Duyuru başarıyla oluşturuldu'
 		})
 	} catch (error) {
-		res.status(500).json({
-			message: 'Announces could not be retrieved',
-			error: error.message
+		res.render('add-announce', {
+			error: 'Duyuru oluşturulamadı'
 		})
 	}
 }
 
 module.exports = {
 	getAddAnnounce,
-	createAnnounce,
-	getAllAnnounces
+	postAddAnnounce
 }

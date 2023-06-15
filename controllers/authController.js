@@ -61,9 +61,16 @@ const postLogin = async (req, res) => {
 	}
 }
 
+const getLogout = (req, res) => {
+	req.session.destroy(() => {
+		res.redirect('/auth/login')
+	})
+}
+
 module.exports = {
 	getRegister,
 	postRegister,
 	getLogin,
-	postLogin
+	postLogin,
+	getLogout
 }

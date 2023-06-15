@@ -22,14 +22,25 @@
 							<h5 class="card-title fw-semibold mb-4">Duyuru Ekle</h5>
 							<div class="card">
 								<div class="card-body">
-									<form>
+									<form action="" method="POST">
 										<div class="mb-3">
 											<label for="exampleFormControlInput1" class="form-label">Duyuru Adı</label>
-											<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Duyuru Adı" />
+											<input
+												type="text"
+												class="form-control"
+												id="exampleFormControlInput1"
+												placeholder="Duyuru Adı"
+												name="name"
+											/>
 										</div>
 										<div class="mb-3">
 											<label for="exampleFormControlTextarea1" class="form-label">Duyuru Açıklaması</label>
-											<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+											<textarea
+												class="form-control"
+												id="exampleFormControlTextarea1"
+												rows="3"
+												name="description"
+											></textarea>
 										</div>
 										<div class="mb-3">
 											<label for="exampleFormControlTextarea1" class="form-label">Duyuru Tarihi</label>
@@ -38,6 +49,7 @@
 												class="form-control"
 												id="exampleFormControlInput1"
 												placeholder="Duyuru Başlığı"
+												name="startDate"
 											/>
 										</div>
 										<div class="mb-3">
@@ -47,12 +59,22 @@
 												class="form-control"
 												id="exampleFormControlInput1"
 												placeholder="Duyuru Başlığı"
+												name="endDate"
 											/>
 										</div>
 										<div class="mb 3">
-											<button type="button" class="btn btn-primary">Duyuru Ekle</button>
+											<button type="submit" class="btn btn-primary">Duyuru Ekle</button>
 										</div>
 									</form>
+									<!-- gelen message prop'u için success alert -->
+									<% if (typeof message !== 'undefined') { %>
+									<div class="alert alert-success" role="alert"><%= message %></div>
+									<% } %>
+
+									<!-- gelen error prop'u için danger alert-->
+									<% if (typeof error !== 'undefined') { %>
+									<div class="alert alert-danger" role="alert"><%= error %></div>
+									<% } %>
 								</div>
 							</div>
 						</div>

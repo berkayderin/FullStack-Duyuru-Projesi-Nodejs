@@ -4,7 +4,7 @@ const FormatDate = require('../system/utils/FormatDate')
 const getIndexPage = async (req, res) => {
 	const announces = await Announce.find().lean()
 	announces.forEach((announce) => {
-		announce.date = FormatDate(announce.date)
+		announce.startDate = FormatDate(announce.startDate)
 		announce.endDate = FormatDate(announce.endDate)
 	})
 
