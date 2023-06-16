@@ -26,7 +26,21 @@ const postAddAnnounce = async (req, res) => {
 	}
 }
 
+const getDeleteAnnounce = async (req, res) => {
+
+	try {
+		await Announce.findByIdAndDelete(req.params.id)
+		res.redirect('/home')
+	} catch (error) {
+		res.render('announces', {
+			error: 'Duyuru silinemedi'
+		})
+	}
+}
+
+
 module.exports = {
 	getAddAnnounce,
-	postAddAnnounce
+	postAddAnnounce,
+	getDeleteAnnounce
 }
